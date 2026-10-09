@@ -1,6 +1,3 @@
--- requires OpenSecurity for the alarm stuff
--- tested on The Lost Era Modpack (1.7.10) with OC 1.8.3
-
 local c = require("component")
 local sides = require("sides")
 local rs = c.redstone
@@ -20,6 +17,7 @@ function oofCheck()
    if reactor.getReactorEnergyOutput() == 0.0 then
     rs.setOutput(2,0)
     print("OUT OF FUEL")
+    dofile "OpenComputers-FuelRod-Move.lua"
     error("OUT OF FUEL")
     else
       return 0
